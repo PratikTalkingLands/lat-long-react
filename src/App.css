@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  background-color: rgb(62, 62, 62);;
+  height: 103vh;
+  width: 400px;
+  margin-top: -22px;
+}
+
+.title {
+  text-align: center;
+  color: red;
+  padding-top: 10px;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
