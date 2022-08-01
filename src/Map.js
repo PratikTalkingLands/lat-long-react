@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import { useRef } from "react";
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import Sidenav from './Sidenav'
 
 const center = {
     lat: 51.505,
@@ -20,11 +21,14 @@ const center = {
 function Map() {
     const [position, setPosition] = useState(center)
     const markerRef = useRef(null)
+    const [latpoints,setlatpoints] = useState('')
+    const [lngpoints,setlngpoints] = useState('')
+
     const eventHandlers = useMemo(() => ({
       dragend() {
         const marker = markerRef.current
-        document.getElementById('latitude').value = marker.getLatLng().lat;
-        document.getElementById('longitude').value = marker.getLatLng().lng;
+        setlatpoints(marker.getLatLng().lat)
+        setlngpoints(marker.getLatLng().lng)
       },
     }),
     [],
@@ -32,7 +36,8 @@ function Map() {
     const draggable=true; 
     return (
         <div id="map">
-        <MapContainer center={[51.505, -0.09]} zoom={18} scrollWheelZoom={true} >
+        <Sidenav latpoints={latpoints} lngpoints={lngpoints}/>
+        <MapContainer center={[51.505, -0.09]} zoom={18} scrollWheelZoom={false} >
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

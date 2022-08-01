@@ -7,9 +7,8 @@ import { MapContainer, TileLayer,Marker,Popup,useMapEvents,Circle,CircleMarker,P
 import { useMemo } from "react";
 import { useRef } from "react";
 
-function Sidenav() {
-
-    
+function Sidenav(props) {
+    console.log(props)
 
     const url = ""
     const [data, setData] = useState({
@@ -19,7 +18,7 @@ function Sidenav() {
     })
 
 
-    /*function submit(e) {
+    function submit(e) {
         e.preventDefault();
         Axios.post(url, {
             latitude: data.latitude,
@@ -29,13 +28,19 @@ function Sidenav() {
         .then(res=>{
             console.log(res.data)
         })
-    }*/
+    }
 
     function handle(e) {
-        const newData = {...data}
-        newData[e.target.id] = e.target.value
-        setData(newData)
-        console.log(newData)
+        const newData = e.target.value;
+        setData({
+            ...data,
+            [e.target.name]:newData
+        })
+
+        // const newData = {...data}
+        // newData[e.target.id] = e.target.value
+        // setData(newData)
+        console.log(data)
     }
 
     return (
@@ -43,10 +48,10 @@ function Sidenav() {
             <div className='title'>
                 <h1>Talking Lands</h1>
             </div>
-            <form class="story-form">
-                <input onChange={(e)=>handle(e)} type="text" id="latitude"  value={data.latitude} placeholder="Latitude" name="Location.Latitude"/>
-                <input onChange={(e)=>handle(e)} type="text" id="longitude" value={data.longitude} placeholder="Longitude" name="Location.Longitude"/>
-                <input onChange={(e)=>handle(e)} type="textarea" id="story" value={data.story} placeholder="Enter your story" style={{"height": 80}}/>
+            <form class="story-form" onSubmit={(e)=>submit(e)}>
+                <input onChange={(e)=>handle(e)} type="text" id="latitude"   value={props.latpoints} placeholder="Latitude" name="latitude"/>
+                <input onChange={(e)=>handle(e)} type="text" id="longitude" value={props.lngpoints} placeholder="Longitude" name="longitude"/>
+                <input onChange={(e)=>handle(e)} type="textarea" id="story" value={data.story} name="story" placeholder="Enter your story" style={{"height": 80}}/>
                 <div class="drag-area">
                     <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                     <header>Drag and Drop to Upload File</header>

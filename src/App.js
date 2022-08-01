@@ -7,7 +7,7 @@ import Map from './Map'
 function App() {
   return (
     <>
-    <Sidenav />
+    {/* <Sidenav /> */}
     <Map />
     </>
   );
