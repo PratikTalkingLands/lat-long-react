@@ -77,7 +77,7 @@ input[type=text], [type=tel], input[type=textarea] {
   height: 55px;
   resize: vertical;
   border: none;
-  border-radius: 2px;
+  border-radius: 8px;
   background-color: #00c46a;
   color: #fff;
   margin-top: 15px;
