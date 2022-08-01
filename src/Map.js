@@ -14,7 +14,8 @@ const center = {
     lng: -0.09,
   }
 
-  
+  // const newLat = marker.getLatLng().lat;
+  // const newLng = marker.getLatLng().lng;
 
 function Map() {
     const [position, setPosition] = useState(center)
@@ -39,7 +40,7 @@ function Map() {
         <Marker position={center}
             draggable={draggable}
             eventHandlers={eventHandlers}
-            position={position}
+            //position={position}
             ref={markerRef}></Marker>
         
         </MapContainer>
