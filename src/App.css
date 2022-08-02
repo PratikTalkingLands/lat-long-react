@@ -40,7 +40,7 @@
 .sidebar {
   background-color: rgb(62, 62, 62);;
   height: 103vh;
-  width: 400px;
+  width: 25%;
   margin-top: -22px;
 }
 
@@ -52,8 +52,10 @@
 }
 
 .leaflet-container {
-  width: 100%;
+  width: 75%;
   height: 100vh;
+  margin-left: 25%;
+  margin-top: -103vh;
 }
 
 #id {
@@ -142,4 +144,17 @@ input[type=text], [type=tel], input[type=textarea] {
     width: 50%;
     object-fit: cover;
     border-radius: 5px;
+  }
+
+  .ImgUpld {
+    font-family: sans-serif;
+    text-align: center;
+  }
+/* 
+  .map-view {
+    display: flex;
+  } */
+
+  #image {
+    display: none;
   }
